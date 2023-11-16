@@ -1,5 +1,8 @@
 package com.tugas.crud.model;
 
+import java.util.List;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,10 +26,10 @@ public class User {
 
     private int usia;
 
-    // @ElementCollection(targetClass = JenisDevice.class)
-    // @Enumerated(EnumType.STRING)
-    // @CollectionTable(name = "jenis_device")
-    // private List<JenisDevice> jenisDevice;
+     @ElementCollection(targetClass = JenisDevice.class)
+     @Enumerated(EnumType.STRING)
+     @CollectionTable(name = "jenis_device")
+     private List<JenisDevice> jenisDevice;
 
     public String getCustomerId() {
         return customerId;
@@ -92,11 +95,11 @@ public class User {
         this.usia = usia;
     }
 
-    // public List<JenisDevice> getJenisDevice() {
-    // return jenisDevice;
-    // }
+     public List<JenisDevice> getJenisDevice() {
+     return jenisDevice;
+     }
 
-    // public void setJenisDevice(List<JenisDevice> jenisDevice) {
-    // this.jenisDevice = jenisDevice;
-    // }
+     public void setJenisDevice(List<JenisDevice> jenisDevice) {
+     this.jenisDevice = jenisDevice;
+     }
 }

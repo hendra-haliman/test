@@ -54,14 +54,12 @@ public class UserController {
         }
 
         model.addAttribute("startItem", startItem);
-
         long endItem;
         if ((offset + pageSize) > totalUsers) {
             endItem = totalUsers;
         } else {
             endItem = offset + pageSize;
         }
-
         model.addAttribute("endItem", endItem);
 
         return "users";
@@ -70,14 +68,13 @@ public class UserController {
     @GetMapping("addUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
-        return "edit";
+        return "add_user";
     }
     
     @PostMapping("saveUser")
     public String saveUser(@ModelAttribute("user") User user, BindingResult errors) {
         userService.addUser(user);
-
-        return "edit";
+        return "redirect:/listUsers/1/10";
     }
     
     @ResponseBody

@@ -13,7 +13,7 @@
     <body>
         <div class="container">
             <div class="header row">
-                <div class="col-md-12"><h2>Add Data User</h2></div>
+                <div class="col-md-12"><h2>Edit Data User</h2></div>
             </div>
             <form th:action="@{/saveUser}" method="post" th:object="${user}" class="myform">
               <div class="form-row">
@@ -66,7 +66,7 @@
                 <div class="form-group col-md-6">
                   <label for="jenisDevice">Jenis Device</label>
                   <input type="password" class="form-control" id="jenisDevice" placeholder="Select Multiple">
-                  <select class="form-control" th:field="*{gender}" id="jenisDevice" multiple>
+                  <select class="form-control" th:field="*{jenisDevice}" id="jenisDevice" multiple>
                       <option value="" hidden>Select Multiple</option>
                       <option th:each="jenisDevice: ${T(com.tugas.crud.model.JenisDevice).values()}"
                               th:value="${jenisDevice}"

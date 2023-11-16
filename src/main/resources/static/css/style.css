@@ -16,3 +16,7 @@
 .page-no {
     width: 40px;
 }
+
+#modal-cust-id {
+    font-weight: bold;
+}
