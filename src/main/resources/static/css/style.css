@@ -1,0 +1,18 @@
+.container {
+    background-color: #f0f7ff;
+    padding: 15px;
+}
+
+.header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.table, .myform {
+    background-color: white;
+    padding: 20px;
+}
+
+.page-no {
+    width: 40px;
+}

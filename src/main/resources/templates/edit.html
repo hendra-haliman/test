@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>Data User: List</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"  crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="header row">
+                <div class="col-md-12"><h2>Add Data User</h2></div>
+            </div>
+            <form th:action="@{/saveUser}" method="post" th:object="${user}" class="myform">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="custID">ID. Customer</label>
+                  <input type="text" th:field="*{customerId}" class="form-control" id="custID" placeholder="Nomer" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="custName">Nama Customer</label>
+                  <input type="text" th:field="*{customerName}" class="form-control" id="custName" placeholder="Nama" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="noHp">No. HP</label>
+                  <input type="text" th:field="*{nomorHp}" class="form-control" id="noHp" placeholder="Nomer">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">Email</label>
+                  <input type="email"th:field="*{email}" class="form-control" id="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="kewarganegaraan">Kewarganegaraan</label>
+                  <select class="form-control" th:field="*{kewarganegaraan}" id="kewarganegaraan">
+                      <option value="" hidden>Select</option>
+                      <option th:each="kewarganegaraan: ${T(com.tugas.crud.model.Kewarganegaraan).values()}"
+                              th:value="${kewarganegaraan}"
+                              th:text="${kewarganegaraan}">                         
+                      </option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="gender">Gender</label>
+                  <select class="form-control" th:field="*{gender}" id="gender">
+                      <option value="" hidden>Select</option>
+                      <option th:each="gender: ${T(com.tugas.crud.model.Gender).values()}"
+                              th:value="${gender}"
+                              th:text="${gender}">                         
+                      </option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="usia">Usia</label>
+                  <input type="text" th:field="*{usia}" class="form-control" id="usia" placeholder="Usia">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="jenisDevice">Jenis Device</label>
+                  <input type="password" class="form-control" id="jenisDevice" placeholder="Select Multiple">
+                  <select class="form-control" th:field="*{gender}" id="jenisDevice" multiple>
+                      <option value="" hidden>Select Multiple</option>
+                      <option th:each="jenisDevice: ${T(com.tugas.crud.model.JenisDevice).values()}"
+                              th:value="${jenisDevice}"
+                              th:text="${jenisDevice}">                         
+                      </option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="alamat">Alamat</label>
+                  <textarea th:field="*{alamat}" class="form-control" id="alamat" rows="4" placeholder="Alamat"></textarea>
+                </div>
+              </div>
+
+              <div class="form-row">
+                  <div class="col-md-10">&nbsp;</div>
+                  <div class="col-md-1"><button class="btn btn-outline-secondary" id="btn-cancel">Cancel</button></div>
+                  <div class="col-md-1"><button class="btn btn-success" id="btn-submit">Submit</button></div>
+              </div>                                  
+            </form>    
+            
+        </div>
+
+        <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#btn-add").on("click", function(e) {
+                        window.location.href="/addUser";
+                    });
+                    $("#btn-cancel").on("click", function(e) {
+                        window.location.href="/listUsers/1/10";
+                    });                    
+                });
+                
+        </script>
+    </body>
+
+</html>
+
