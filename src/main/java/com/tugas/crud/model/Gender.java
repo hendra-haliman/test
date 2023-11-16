@@ -1,5 +1,5 @@
 package com.tugas.crud.model;
 
 public enum Gender {
-    L, P;
+    L, P; //gender enum
 }
