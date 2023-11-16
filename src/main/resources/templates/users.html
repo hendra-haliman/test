@@ -92,6 +92,8 @@
         </div>
 
         <script type="text/javascript">
+                var tempCustId;
+                
                 $(document).ready(function() {
                     $("#btn-add").on("click", function(e) {
                         window.location.href="/addUser";
@@ -102,28 +104,20 @@
                           type: "GET",
                           url: "/deleteUser",
                           data: {
-                            custId: 'CST-06'
+                            custId: tempCustId
                           },
                           success: function( result ) {
                             alert("user deleted");
                           }
                         });                    
                     });
-                    
-                    function populateCustId(id) {
-                        console.log(id);
-                    }
-                    
-                    $("#delete-user").on("click", function(e) {
-                        console.log("delete clicked");
-                        alert("test delete clicked");
-                    });
-                    
+                                        
                     $("#delete-modal").on("show.bs.modal", function(e) {
                         var obj = $(e.relatedTarget);
                         var recipient = obj.data('myattr');
                         var modal = $(this);
                         modal.find('#modal-cust-id').text(recipient);
+                        tempCustId = recipient;
                     });
                 });
         </script>
