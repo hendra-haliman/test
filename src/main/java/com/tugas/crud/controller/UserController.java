@@ -85,5 +85,16 @@ public class UserController {
         return "user deleted.";
     }
     
+    @GetMapping("/editUser")
+    public String editUser(Model model, @RequestParam(name = "custId") String custId) {
+        User user = userService.findById(custId);
+        model.addAttribute("user", user);
+        return "edit_user";
+    }
     
+    @PostMapping("/editUser")
+    public String updateUser(@ModelAttribute User user) {
+        userService.updateUser(user);
+        return "redirect:/listUsers/1/10";
+    }
 }
