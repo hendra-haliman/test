@@ -52,7 +52,7 @@
                                             aria-expanded="false"><i class="fa fa-bars"></i></button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#"><i class="fa fa-search"></i> Detail</a>
-                                      <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Edit</a>
+                                      <a class="dropdown-item" th:href="@{/editUser(custId=${user.customerId})}"><i class="fa fa-pencil"></i> Edit</a>
                                       <a class="dropdown-item" href="#" id="delete-user" data-toggle="modal" th:attr="data-myattr=${user.customerId}" 
                                          data-target="#delete-modal"><i class="fa fa-trash"></i> Delete</a>
                                    </div>
@@ -119,6 +119,8 @@
                         modal.find('#modal-cust-id').text(recipient);
                         tempCustId = recipient;
                     });
+                    
+
                 });
         </script>
     </body>
